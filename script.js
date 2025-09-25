@@ -39,20 +39,27 @@ Sort Code: 04-29-09
     alert("✅ Bank account details copied to clipboard!");
   });
 }
-// faq.js
-document.querySelectorAll(".faq-item button").forEach(button => {
-  button.addEventListener("click", () => {
-    const content = button.nextElementSibling;
-    const icon = button.querySelector("i");
+<script>
+  // FAQ dropdown logic
+  document.querySelectorAll(".faq-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector("i");
 
-    if (content.style.maxHeight) {
-      content.style.maxHeight = null;
-      icon.classList.remove("rotate-180");
-    } else {
-      document.querySelectorAll(".faq-content").forEach(c => c.style.maxHeight = null);
-      document.querySelectorAll(".faq-item i").forEach(i => i.classList.remove("rotate-180"));
-      content.style.maxHeight = content.scrollHeight + "px";
-      icon.classList.add("rotate-180");
-    }
+      if (answer.style.maxHeight && answer.style.maxHeight !== "0px") {
+        // Close
+        answer.style.maxHeight = "0";
+        icon.classList.remove("rotate-180");
+      } else {
+        // Close all others
+        document.querySelectorAll(".faq-answer").forEach((ans) => ans.style.maxHeight = "0");
+        document.querySelectorAll(".faq-toggle i").forEach((ic) => ic.classList.remove("rotate-180"));
+
+        // Open current
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        icon.classList.add("rotate-180");
+      }
+    });
   });
-});
+</script>
+
