@@ -39,7 +39,6 @@ Sort Code: 04-29-09
     alert("✅ Bank account details copied to clipboard!");
   });
 }
-<script>
   // FAQ dropdown logic
   document.querySelectorAll(".faq-toggle").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -61,5 +60,5 @@ Sort Code: 04-29-09
       }
     });
   });
-</script>
+
 
